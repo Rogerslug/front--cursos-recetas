@@ -1,38 +1,567 @@
+/* Estilos generales de la App */
 .App {
   text-align: center;
+  background-color: #FFFAE3; /* Fondo claro y cálido */
+  min-height: 100vh; /* Asegura que cubra toda la pantalla verticalmente */
+  font-family: 'Comic Sans MS', cursive, sans-serif; /* Fuente amigable para niños */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media screen and (max-width: 1024px) {
+  .App {
+    font-size: 1rem; /* Aumentado el tamaño de la fuente para dispositivos de escritorio */
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+@media screen and (max-width: 768px) {
+  .App {
+    font-size: 0.8rem; /* Reducido el tamaño de la fuente para dispositivos móviles */
+  }
+}
+
+/* Header alegre y accesible */
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #FFB833; /* Color naranja brillante */
+  padding: 10px 20px;
+  color: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.header a {
+  color: #0066CC; /* Azul vibrante */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav {
+  display: flex;
+  gap: 15px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #0066CC;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/* Contenido principal */
+.main-content {
+  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+/* Estilos generales para breadcrumb */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Aumentado para mejor separación */
+  padding: 12px; /* Aumentado ligeramente para más comodidad */
+  background-color: #FFEB99; /* Color más claro para mejor contraste */
+  border-radius: 10px; /* Redondeo más sutil */
+  box-shadow: 0 4px 8px rgba(0, 102, 204, 0.2); /* Sombras suaves */
+  margin: 20px;
+}
+
+/* Estilos para los ítems del breadcrumb */
+.breadcrumb-item,
+.breadcrumb-button {
+  color: #005BB5;
+  background-color: #FFEB99;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 6px 8px; /* Más espacio para hacer clic */
+  transition: color 0.3s, background-color 0.3s; /* Efecto suave */
+  border-radius: 4px;
+  border-color: #FFEB99;
+}
+
+.breadcrumb-item:hover,
+.breadcrumb-button:hover {
+  background-color: #FFB833; /* Color de fondo en hover */
+  color: #003366; /* Contraste adicional en hover */
+  border-radius: 4px; /* Redondeo en hover */
+}
+
+/* Separador entre items */
+.breadcrumb-item:not(:last-child)::after,
+.breadcrumb-button:not(:last-child)::after {
+  content: "›"; /* Cambiado a '›' para una apariencia más moderna */
+  margin: 0 8px;
+  color: #666; /* Color más suave para no competir visualmente */
+}
+
+/* Eliminación del separador en el último elemento */
+.breadcrumb-item:last-child::after,
+.breadcrumb-button:last-child::after {
+  content: "";
+}
+
+
+
+/* Contenedor principal */
+.container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 40px 10px;
+  gap: 20px; /* Espacio entre elementos */
+  background-color: #ffed9f; /* Fondo claro */
 }
 
-.App-link {
-  color: #61dafb;
+/* Vista de mitad de escritorio (tablets o ventanas medianas) */
+@media (max-width: 992px) {
+  .container {
+    flex-direction: column; /* Diseño apilado en tablets */
+    gap: 15px;
+    padding: 40px;
+  }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+/* Vista de smartphones */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; /* Diseño apilado en móvil */
+    gap: 10px;
+    padding: 40px;
   }
 }
+
+/* Disposición de cajas de introducción en una fila para pantallas grandes */
+.intro-text-box-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: center;
+}
+
+@media (max-width: 1024px) {
+  .intro-text-box-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+}
+
+@media (max-width: 992px) {
+/* Contenedores de texto */
+.intro-text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    width: 100vw;
+  }
+}
+@media (max-width: 768px) {
+  .intro-text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+  }
+}
+
+
+/* Caja de introducción con colores vivos */
+.intro-text-box {
+  width: 23.5vw;
+  height: 300px;
+  align-items: center;
+  justify-content: center;
+  background-color: #FFD966; /* Amarillo cálido */
+  box-shadow: 0 4px 8px rgba(0, 102, 204, 0.3); /* Sombra suave */
+  border-radius: 15px;
+  color: #333333; /* Texto oscuro */
+  padding: 20px;
+  margin: 10px auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Vista de mitad de escritorio y smartphone para intro-text-box */
+@media (max-width: 992px) {
+  .intro-text-box {
+    width: 90vw;
+    display: flex;
+    flex-direction: column; /* Diseño apilado en tablets */
+    gap: 15px;
+    padding: 20px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .intro-text-box {
+    width: 90vw;
+    padding: 10px;
+    gap: 10px;
+  }
+}
+
+/* Caja de texto principal */
+.text-box {
+  background-color: #FFFFFF;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 102, 204, 0.3);
+  width: 75%;
+  color: #333333;
+  padding: 15px;
+  margin: 15px auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ajuste para text-box en tablets y smartphones */
+@media (max-width: 992px) {
+  .text-box {
+    width: 85%;
+    padding: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .text-box {
+    width: 90%;
+    padding: 10px;
+  }
+}
+
+/* Caja de publicidad */
+.ad-text-box {
+  background-color: #FFD966; /* Fondo amarillo */
+  box-shadow: 0 4px 8px rgba(0, 102, 204, 0.4);
+  border-radius: 15px;
+  color: #333333;
+  padding: 15px;
+  margin: 15px auto;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 50vw;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.ad-text-box h4, .ad-text-box h2 {
+  color: #0066CC; /* Texto en azul vibrante */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.ad-text-box p {
+  color: #0066CC; /* Texto en azul vibrante */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Ajuste de ad-text-box para tablets y móviles */
+@media (max-width: 992px) {
+  .ad-text-box {
+    width: 90vw;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .ad-text-box {
+    width: 90vw;
+    padding: 10px;
+  }
+}
+
+/* Botón en la caja de publicidad */
+.ad-text-box button {
+  background-color: #FF6666; /* Botón rojo claro */
+  border-radius: 8.5px;
+  border: none;
+  cursor: pointer;
+  color: #ffffff;
+  padding: 15px 10px;
+  margin: 10px auto;
+  transition: transform 0.2s ease-in-out;
+  box-shadow: 0 4px 8px rgba(0, 102, 204, 0.3);
+  width: 45vw;
+}
+
+.ad-text-box button:hover {
+  transform: scale(1.03); /* Aumenta suavemente el tamaño */
+  box-shadow: 0 8px 16px rgba(0, 102, 204, 0.4);
+}
+
+
+/* Contenedor de imágenes en mosaico */
+.intro-img-container {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(2, 1fr); /* Dos columnas en escritorio */
+  grid-template-rows: repeat(2, 1fr);
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* un cuarto de escritorio */
+@media screen and (max-width: 1024px) {
+  .intro-img-container {
+    grid-template-columns: repeat(2, 1fr); /* Cuatro columnas en tablets */
+    gap: 15px;
+  }
+}
+
+/* Dos tercios de escritorio */
+@media (max-width: 992px) {
+  .intro-img-container {
+    grid-template-columns: repeat(2, 1fr); /* Tres columnas en tablets */
+    gap: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .intro-img-container {
+    width: 100%;
+    grid-template-columns: repeat(2, 1fr); /* Una columna en móvil */
+    gap: 10px;
+  }
+}
+
+/* Estilo de las imágenes en intro-img-container */
+.intro-img-container img {
+  border-radius: 10px;
+  width: 100%; 
+  height: auto;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(204, 133, 0, 0.3);
+}
+
+
+/* Footer amigable */
+.footer {
+  position: relative; /* Cambiado a position: fixed */
+  bottom: 0;
+  background-color: #FFB833; /* Naranja brillante */
+  color: #ffffff;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* Añadido un pequeño shadow para darle un efecto de elevación */
+}
+
+@media screen and (max-width: 1024px) {
+  .footer {
+    position: relative; 
+    bottom: 0;
+    background-color: #FFB833; /* Naranja brillante */
+    color: #ffffff;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); 
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .footer {
+    position: relative;
+    bottom: 0;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .footer {
+    position: relative; /* Cambiado a position: relative para dispositivos más pequeños */
+    bottom: auto;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.footer p {
+  color: #0066CC;
+  text-decoration: none;
+}
+
+
+
+
+/* Contenedor de tarjetas */
+
+.content-card-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 20px 0;
+  margin: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .content-card-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 20px 0;
+    margin: 20px;
+}
+}
+
+/* Tarjetas de contenido coloridas */
+.content-card {
+  cursor: pointer;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 102, 204, 0.3);
+  height: 250px;
+  width: 180px;
+  background-color: #5eaeff;
+  color: #333333;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Transformación de la tarjeta al pasar el mouse sobre ella */
+.content-card:hover {
+  transform: scale(1.05) translateY(-5px); /* Pequeño efecto de escala y traslación */
+  box-shadow: 0 8px 16px rgba(0, 102, 204, 0.4);
+}
+
+/* Contenedor de la imagen principal */
+.content-card-image {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Imagen principal */
+.content-card-image .hover-image1, 
+.content-card-image .hover-image2 {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+/* Imagen principal al pasar el mouse sobre la tarjeta */
+.content-card-image .hover-image2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.content-card-image:hover .hover-image1 {
+  opacity: 0;
+}
+
+.content-card-image:hover .hover-image2 {
+  opacity: 1;
+}
+
+
+/****  Página de detalles del curso  ****/
+/* Estilos de la página de detalles del curso */
+.course-details-page {
+  padding: 20px;
+  background-color: #FFFAE3; /* Fondo claro */
+  text-align: left;
+  font-family: 'Comic Sans MS', cursive, sans-serif; /* Fuente amigable */
+}
+
+/* Contenedor de los detalles del curso */
+.course-details-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 50px;
+  background-color: #FFFFFF; /* Fondo blanco */
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 102, 204, 0.3); /* Sombra */
+}
+
+.course-detail-image {
+  width: 300px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 102, 204, 0.3); /* Sombra */
+}
+
+.course-detail-info {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  text-align: left;
+}
+
+.course-detail-name {
+  font-size: 2rem;
+  color: #333333;
+  margin: 0;
+}
+
+.course-detail-description {
+  color: #666666;
+  font-size: 1.2rem;
+}
+
+.course-detail-link {
+  color: #FF6666;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 10px 15px;
+  background-color: #FFB833;
+  border-radius: 8px;
+  transition: transform 0.2s ease;
+  box-shadow: 0 4px 8px rgba(0, 102, 204, 0.3);
+}
+
+.course-detail-link:hover {
+  transform: scale(1.05);
+  text-decoration: underline;
+}
+
+/* Estilos responsivos */
+@media (max-width: 992px) {
+  .course-details-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .course-detail-image {
+    width: 80%;
+    margin-bottom: 20px;
+  }
+
+  .course-detail-name {
+    font-size: 1.5rem;
+  }
+
+  .course-detail-description {
+    font-size: 1rem;
+  }
+}
+  .course-detail-info {
+    align-items: center;
+    text-align: center;
+  }
+
+  .course-detail-link {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+  }

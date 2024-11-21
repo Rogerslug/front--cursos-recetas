@@ -1,0 +1,13 @@
+Requisitos para levantar el proyecto de cursos de cocina hecho con React
+
+1. Se debe tener instalado Node.js y npm, para descargarlos siga este enlace: https://nodejs.org/es/download/ , no demora mucho en instalar.
+
+2. Instalar las dependencias de npm con el siguiente comando desde la raiz del proyecto:
+
+    npm install
+
+3. Una vez instaladas las dependencias, ejecutar el siguiente comando en la raiz del proyecto para levantar el servidor de desarrollo:
+
+    npm start
+
+.La aplicación se levantará en http://localhost:3000, automáticamente abrirá la página de inicio en el navegador.
